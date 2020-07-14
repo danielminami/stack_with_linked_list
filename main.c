@@ -26,12 +26,16 @@ node_t* createNode(int newValue) {
 }
 
 void push(int newValue) {
-    if (top == NULL) {
+    if (isEmpty()) {
         top = createNode(newValue);
     } else {
         node_t* newNode = createNode(newValue);
-        newNode->next = top;
-        top = newNode;
+        if (newNode == NULL) {
+            printf("No memory");
+        } else {
+            newNode->next = top;
+            top = newNode;
+        }
     }
 }
 
